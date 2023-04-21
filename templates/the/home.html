@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- {% block content %} -->
+    <h1>THESE ARE LIST OF PRODUCTS</h1>
+    {% for i in product_list %}
+    <br>
+        <h2><a href="{% url 'detail-link' i.pk %}">{{i.name}}</a></h2> - <br> {{i.description}} - {{i.get_category_display}} - {{i.price}} - <img src="{{i.image.url}}" alt=""></li></h5>
+        <br>
+    {% endfor %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ myform.as_p }}
+        <input type="submit" value="Create Product">
+    </form>
+    <!-- {% endblock content %} -->
+    
+</body>
+</html>
